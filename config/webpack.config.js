@@ -103,6 +103,17 @@ module.exports = {
           ].filter(Boolean),
         },
       },
+      // 处理ts
+      {
+        test: /.(ts|tsx)$/, // 匹配.ts, tsx文件
+        use: {
+          loader: "babel-loader",
+          options: {
+            // 预设执行顺序由右往左,所以先处理ts,再处理jsx
+            presets: ["@babel/preset-react", "@babel/preset-typescript"],
+          },
+        },
+      },
     ],
   },
   // 处理html
@@ -205,7 +216,7 @@ module.exports = {
   // webpack解析模块加载选项
   resolve: {
     // 自动补全文件扩展名
-    extensions: [".jsx", ".js", ".json"],
+    extensions: [".jsx", ".js", "tsx", "ts", ".json"],
   },
   devServer: {
     host: "localhost",

@@ -216,7 +216,7 @@ module.exports = {
   // webpack解析模块加载选项
   resolve: {
     // 自动补全文件扩展名
-    extensions: [".jsx", ".js", "tsx", "ts", ".json"],
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
   },
   devServer: {
     host: "localhost",
